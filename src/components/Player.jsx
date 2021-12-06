@@ -9,6 +9,8 @@ const Player = ({ selectedAlbum, selectedSong }) => {
 
   const playSong = (song) => {
     console.log("playsong");
+    let audio = new Audio(song.preview);
+    audio.play();
     setPlaying(true);
   };
   const pauseSong = (song) => {
@@ -33,25 +35,25 @@ const Player = ({ selectedAlbum, selectedSong }) => {
               <Col xs={4} className=" d-flex pt-2 px-5">
                 <div className="playerControls gap-5 d-flex  ">
                   <span>
-                    <i class="bi bi-shuffle"></i>
+                    <i className="bi bi-shuffle"></i>
                   </span>{" "}
                   <span>
-                    <i class="bi bi-skip-backward-fill"></i>
+                    <i className="bi bi-skip-backward-fill"></i>
                   </span>{" "}
                   {playing ? (
                     <span onClick={() => pauseSong(selectedSong)}>
-                      <i class="bi bi-pause-circle-fill"></i>
+                      <i className="bi bi-pause-circle-fill"></i>
                     </span>
                   ) : (
                     <span onClick={() => playSong(selectedSong)}>
-                      <i class="bi bi-play-circle-fill"></i>
+                      <i className="bi bi-play-circle-fill"></i>
                     </span>
                   )}
                   <span>
-                    <i class="bi bi-skip-forward-fill"></i>
+                    <i className="bi bi-skip-forward-fill"></i>
                   </span>{" "}
                   <span>
-                    <i class="bi bi-arrow-repeat"></i>
+                    <i className="bi bi-arrow-repeat"></i>
                   </span>{" "}
                 </div>
               </Col>
