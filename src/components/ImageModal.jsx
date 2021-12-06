@@ -28,13 +28,13 @@ const ImageModal = ({ show, onHide, selectedAlbum }) => {
                       {selectedAlbum.tracks.data.map((track, index) => (
                         <tr key={index} className=" tableBorders py-3" onClick={() => setSelectedSong(track)}>
                           <td className="px-3 py-3 tableBorders" style={{ color: "white" }}>
-                            <i class="bi bi-heart"></i>
+                            <i className="bi bi-heart"></i>
                           </td>
                           <td className="py-3 tableBorders" style={{ color: "white" }}>
                             {track.title}
                           </td>
                           <td className="py-3 px-3" style={{ color: "white" }}>
-                            {track.duration}
+                            {Math.floor(track.duration / 60)} : {track.duration - Math.floor(track.duration / 60) * 60}
                           </td>
                         </tr>
                       ))}
