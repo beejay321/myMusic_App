@@ -16,12 +16,15 @@ const Player = ({ selectedAlbum, selectedSong }) => {
   const pauseSong = (song) => {
     console.log("pausesong");
     setPlaying(false);
+    let audio = new Audio(song.preview);
+    audio.pause();
+    setPlaying(false);
   };
 
   return (
     <div>
       <Container>
-        <Row className="">
+        <Row className="mb-3">
           {selectedAlbum && (
             <>
               <Col xs={4} className="songTitle d-flex  gap-3 align-items-center ">
@@ -32,7 +35,7 @@ const Player = ({ selectedAlbum, selectedSong }) => {
                   </p>
                 )}
               </Col>
-              <Col xs={4} className=" d-flex pt-2 px-5">
+              <Col xs={4} className=" d-flex pt-1 px-4">
                 <div className="playerControls gap-5 d-flex  ">
                   <span>
                     <i className="bi bi-shuffle"></i>
