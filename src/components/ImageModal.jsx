@@ -6,25 +6,27 @@ import "../css/styles.css";
 import Player from "./Player";
 
 const ImageModal = ({ show, onHide, selectedAlbum }) => {
- 
+  const [selectedSong, setSelectedSong] = useState(selectedAlbum ? selectedAlbum.tracks.data[0] : "");
+  // const [selectedSong, setSelectedSong] = useState("");
+
   return (
     <>
-      <Modal show={show} onHide={onHide} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-        <div style={{ background: "rgb(48, 47, 47)" }}>
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white" }}>
-              Album List
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="d-grid justify-content-center">
-            {selectedAlbum && (
+      {selectedAlbum && (
+        <Modal show={show} onHide={onHide} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+          <div style={{ background: "rgb(48, 47, 47)" }}>
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white" }}>
+                Album List
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="d-grid justify-content-center">
               <>
                 <Image className="d-block w-100" src={selectedAlbum.cover_big} />
                 <div className=" py-3 d-grid ">
                   <Table striped bordered hover>
                     <tbody className="tableBorders">
-                      {selectedAlbum.tracks.data.map((track) => (
-                        <tr className=" tableBorders py-3" >
+                      {selectedAlbum.tracks.data.map((track, index) => (
+                        <tr key={index} className=" tableBorders py-3" onClick={() => setSelectedSong(track)}>
                           <td className="px-3 py-3 tableBorders" style={{ color: "white" }}>
                             <i class="bi bi-heart"></i>
                           </td>
@@ -40,12 +42,15 @@ const ImageModal = ({ show, onHide, selectedAlbum }) => {
                   </Table>
                 </div>
               </>
-            )}
-          </Modal.Body>
-          
-          <Modal.Footer ><Button onClick={onHide}>Close</Button></Modal.Footer>
-        </div>
-      </Modal>
+            </Modal.Body>
+            <hr style={{ color: "white" }} />
+            <div className="d-flex px-3 py-2 ">
+              <Player selectedAlbum={selectedAlbum} selectedSong={selectedSong} />
+              {/* <Player selectedAlbum={selectedAlbum}  /> */}
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };
