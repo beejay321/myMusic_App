@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import ImageModal from "./ImageModal";
 
 const Home = () => {
-  const [artist, setArtist] = useState();
+  const [artist, setArtist] = useState([]);
   const [query, setQuery] = useState("eminem");
   const [modalShow, setModalShow] = useState(false);
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const [selectedAlbum, setSelectedAlbum] = useState(artist[0]);
 
   useEffect(() => {
     const getArtist = async () => {
