@@ -49,10 +49,10 @@ const Home = () => {
   return (
     <>
       <Container fluid>
-        <Row className="mt-4 mx-5 ">
+        <Row className=" m-1 ">
           {artist &&
             artist.map((album) => (
-              <Col xs={10} sm={6} md={6} lg={4} xl={4} className="my-3  d-flex justify-content-center ">
+              <Col xs={10} sm={6}  xl={4} className="my-1  px-0 d-flex justify-content-center ">
                 <div className="coverDiv">
                   <Image className="cover d-flex justify-content-center" src={album.album.cover_big} rounded onClick={() => handleSelectedAlbum(album)} />
                 </div>
