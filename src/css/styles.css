@@ -6,7 +6,21 @@
   color: white;
   max-width: 220px;
   margin: 0 auto;
+  font-size: 1.5em;
 }
 .songTitle {
   width: 220px;
 }
+.coverDiv {
+  display: inline-block;
+  position: relative;
+  width: 98%;
+  overflow: hidden;
+}
+.cover {
+  width: 100%;
+  height: 100%;
+  
+}
+
+
