@@ -1,29 +1,63 @@
 import { Image, Container, Row, Col } from "react-bootstrap";
 import React from "react";
+import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../css/styles.css";
 
-const Player = () => {
+const Player = ({ selectedAlbum, selectedSong }) => {
+  const [playing, setPlaying] = useState(false);
+
+  const playSong = (song) => {
+    console.log("playsong");
+    setPlaying(true);
+  };
+  const pauseSong = (song) => {
+    console.log("pausesong");
+    setPlaying(false);
+  };
+
   return (
     <div>
       <Container>
         <Row className="">
-          <>
-            <Col xs={4} className="songTitle d-flex  gap-3 align-items-center ">
-              <Image className="" src="" />
-              <p style={{ color: "white" }}>song title</p>
-            </Col>
-            <Col xs={4} className=" d-flex pt-2 px-5">
-              <div className="playerControls gap-5 d-flex  ">
-                <i class="bi bi-shuffle"></i>
-                <i class="bi bi-skip-backward-fill"></i>
-                <i class="bi bi-play-circle-fill"></i> <i class="bi bi-pause-circle-fill"></i>
-                <i class="bi bi-skip-forward-fill"></i>
-                <i class="bi bi-arrow-repeat"></i>
-              </div>
-            </Col>
-            <Col xs={3}></Col>
-          </>
+          {selectedAlbum && (
+            <>
+              <Col xs={4} className="songTitle d-flex  gap-3 align-items-center ">
+                <Image className="" src={selectedAlbum.cover_small} />
+                {selectedSong && (
+                  <p className=" " style={{ color: "white" }}>
+                    {selectedSong.title}
+                  </p>
+                )}
+              </Col>
+              <Col xs={4} className=" d-flex pt-2 px-5">
+                <div className="playerControls gap-5 d-flex  ">
+                  <span>
+                    <i class="bi bi-shuffle"></i>
+                  </span>{" "}
+                  <span>
+                    <i class="bi bi-skip-backward-fill"></i>
+                  </span>{" "}
+                  {playing ? (
+                    <span onClick={() => pauseSong(selectedSong)}>
+                      <i class="bi bi-pause-circle-fill"></i>
+                    </span>
+                  ) : (
+                    <span onClick={() => playSong(selectedSong)}>
+                      <i class="bi bi-play-circle-fill"></i>
+                    </span>
+                  )}
+                  <span>
+                    <i class="bi bi-skip-forward-fill"></i>
+                  </span>{" "}
+                  <span>
+                    <i class="bi bi-arrow-repeat"></i>
+                  </span>{" "}
+                </div>
+              </Col>
+              <Col xs={3}></Col>
+            </>
+          )}
         </Row>
       </Container>
     </div>
