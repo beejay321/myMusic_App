@@ -1,0 +1,12 @@
+.tableBorders {
+  border: none !important;
+  border-style: hidden !important;
+}
+.playerControls {
+  color: white;
+  max-width: 220px;
+  margin: 0 auto;
+}
+.songTitle {
+  width: 220px;
+}
