@@ -1,5 +1,5 @@
 import { Modal, Image, Table, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../css/styles.css";
@@ -7,7 +7,10 @@ import Player from "./Player";
 
 const ImageModal = ({ show, onHide, selectedAlbum }) => {
   const [selectedSong, setSelectedSong] = useState(selectedAlbum ? selectedAlbum.tracks.data[0] : "");
-  // const [selectedSong, setSelectedSong] = useState("");
+
+  useEffect(() => {
+    console.log(selectedSong);
+  }, []);
 
   return (
     <>
@@ -46,7 +49,6 @@ const ImageModal = ({ show, onHide, selectedAlbum }) => {
             <hr style={{ color: "white" }} />
             <div className="d-flex px-3 py-2 ">
               <Player selectedAlbum={selectedAlbum} selectedSong={selectedSong} />
-              {/* <Player selectedAlbum={selectedAlbum}  /> */}
             </div>
           </div>
         </Modal>
