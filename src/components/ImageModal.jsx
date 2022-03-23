@@ -1,6 +1,5 @@
-import { Modal, Image, Table, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
-
+import { Modal, Image, Table } from "react-bootstrap";
+import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../css/styles.css";
 import Player from "./Player";
@@ -8,9 +7,9 @@ import Player from "./Player";
 const ImageModal = ({ show, onHide, selectedAlbum }) => {
   const [selectedSong, setSelectedSong] = useState(selectedAlbum ? selectedAlbum.tracks.data[0] : "");
 
-  useEffect(() => {
-    console.log(selectedSong);
-  }, []);
+  // useEffect(() => {
+  //   console.log(selectedSong);
+  // }, []);
 
   return (
     <>

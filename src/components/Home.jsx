@@ -58,7 +58,7 @@ const Home = () => {
     <>
       <Container fluid>
         <Form className="d-flex mx-3 py-3">
-          <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" value={query} onChange={(e) => setQuery(e.currentTarget.value.toLowerCase())} />
+          <FormControl type="search" placeholder="Search By Artist" className="me-2" aria-label="Search" value={query} onChange={(e) => setQuery(e.currentTarget.value.toLowerCase())} />
           <Button onClick={() => getArtist(query)} variant="outline-success">
             Search
           </Button>

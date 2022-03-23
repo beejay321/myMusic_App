@@ -8,7 +8,7 @@ const MyNav = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container fluid>
           <Link to="/">
-            <Navbar.Brand>MusicApp</Navbar.Brand>
+            <Navbar.Brand>MyMusic</Navbar.Brand>
           </Link>{" "}
         </Container>
       </Navbar>
