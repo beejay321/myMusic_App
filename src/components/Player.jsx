@@ -4,38 +4,45 @@ import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../css/styles.css";
 
-const Player = ({ selectedAlbum, selectedSong }) => {
-  const [playing, setPlaying] = useState(false);
+const Player = ({ selectedAlbum, selectedSong, playing, setPlaying }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const playSong = (song) => {
     console.log("playsong");
     let audio = new Audio(song.preview);
     audio.play();
-    setPlaying(true);
+    setIsPlaying(true);
   };
+
   const pauseSong = (song) => {
     console.log("pausesong");
-    setPlaying(false);
+    // setIsPlaying(false);
     let audio = new Audio(song.preview);
     audio.pause();
+    setIsPlaying(false);
     setPlaying(false);
   };
 
   return (
-    <div>
-      <Container>
-        <Row className="mb-3">
+    <>
+      <Container fluid className="player py-3 ">
+        <Row className="mt-2">
           {selectedAlbum && (
             <>
-              <Col xs={4} className="songTitle d-flex  gap-3 align-items-center ">
-                <Image className="" src={selectedAlbum.cover_small} />
+              <Col xs={3} className="songTitle d-flex  gap-3 align-items-center ">
+                <Image className="mx-2" src={selectedAlbum.cover_small} />
                 {selectedSong && (
-                  <p className=" " style={{ color: "white" }}>
-                    {selectedSong.title}
-                  </p>
+                  <div className="d-grid">
+                    <span className="songTitle " style={{ color: "white" }}>
+                      {selectedSong.title}
+                    </span>
+                    <span className="songArtist " style={{ color: "white" }}>
+                      {selectedSong.artist.name}
+                    </span>
+                  </div>
                 )}
               </Col>
-              <Col xs={4} className=" d-flex pt-1 px-4">
+              <Col xs={7} className=" d-flex pt-1 px-4">
                 <div className="playerControls gap-5 d-flex  ">
                   <span>
                     <i className="bi bi-shuffle"></i>
@@ -43,7 +50,7 @@ const Player = ({ selectedAlbum, selectedSong }) => {
                   <span>
                     <i className="bi bi-skip-backward-fill"></i>
                   </span>{" "}
-                  {playing ? (
+                  {playing || isPlaying ? (
                     <span onClick={() => pauseSong(selectedSong)}>
                       <i className="bi bi-pause-circle-fill"></i>
                     </span>
@@ -60,12 +67,11 @@ const Player = ({ selectedAlbum, selectedSong }) => {
                   </span>{" "}
                 </div>
               </Col>
-              <Col xs={3}></Col>
             </>
           )}
         </Row>
       </Container>
-    </div>
+    </>
   );
 };
 
