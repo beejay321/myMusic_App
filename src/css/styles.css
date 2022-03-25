@@ -48,7 +48,7 @@
 .albumDiv:hover {
   background-color: rgb(100, 100, 100);
   cursor: pointer;
-  width: 18em;
+  width: 99%;
 }
 
 .cover {
@@ -57,6 +57,7 @@
   border: none;
   border-radius: 0px;
 }
+
 .coverTitle {
   width: 100%;
   display: flex;
