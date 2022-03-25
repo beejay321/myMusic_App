@@ -63,10 +63,8 @@ const Home = (props) => {
             artist.map((album, i) => (
               <Col key={i} xs={10} sm={6} xl={2} className="my-1  px-0 d-grid justify-content-center ">
                 <div className="albumDiv mx-1" onClick={() => handleSelectedAlbum(album)}>
-                  {/* <div className="coverDiv"> */}
-                    <Image className="cover " src={album.album.cover_big} rounded />
-                    <p className="coverTitle px-2  py-3 ">{album.album.title}</p>
-                  {/* </div> */}
+                  <Image className="cover " src={album.album.cover_big} rounded />
+                  <p className="coverTitle px-2  py-3 ">{album.album.title}</p>
                 </div>
               </Col>
             ))}
