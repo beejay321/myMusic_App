@@ -69,3 +69,7 @@
   font-weight: 500;
   color: white;
 }
+
+a {
+  text-decoration: none;
+}
