@@ -1,15 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNav from "./components/MyNav";
 import Home from "./components/Home";
+import Album from "./components/Album";
 
 const App = () => {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <MyNav />
-        <Home />
-      </Router>
+
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/album/:id" element={<Album />} />
+          
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
