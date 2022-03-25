@@ -36,6 +36,8 @@ const Album = (props) => {
     setPlaying(true);
   };
 
+  
+
   return (
     <>
       {selectedAlbum && (
@@ -79,7 +81,7 @@ const Album = (props) => {
               </Row>
               <div className=" py-3  ">
                 {selectedAlbum.tracks.data.map((track, index) => (
-                  <Row key={index} className=" tableBorders py-1" onClick={() => playSong(track)}>
+                  <Row key={index} className=" tableBorders py-1" onClick={() => playSong(track, index)}>
                     <Col xs={1}>
                       <p className="  px-3 " style={{ color: "white" }}>
                         <i className="bi bi-heart"></i>
