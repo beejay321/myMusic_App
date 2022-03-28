@@ -4,11 +4,23 @@ import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../css/styles.css";
 
-const Player = ({ selectedAlbum, selectedSong, playing, setPlaying }) => {
+const Player = ({ selectedAlbum, selectedSong, playing, setPlaying, previousSong, nextSong }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const playSong = (song) => {
     console.log("playsong");
+    let audio = new Audio(song.preview);
+    audio.play();
+    setIsPlaying(true);
+  };
+  const playPrevious = (song) => {
+    console.log("playprevious");
+    let audio = new Audio(song.preview);
+    audio.play();
+    setIsPlaying(true);
+  };
+  const playNext = (song) => {
+    console.log("playnext");
     let audio = new Audio(song.preview);
     audio.play();
     setIsPlaying(true);
@@ -47,7 +59,7 @@ const Player = ({ selectedAlbum, selectedSong, playing, setPlaying }) => {
                   <span>
                     <i className="bi bi-shuffle"></i>
                   </span>{" "}
-                  <span>
+                  <span onClick={() => playPrevious(previousSong)}>
                     <i className="bi bi-skip-backward-fill"></i>
                   </span>{" "}
                   {playing || isPlaying ? (
@@ -59,7 +71,7 @@ const Player = ({ selectedAlbum, selectedSong, playing, setPlaying }) => {
                       <i className="bi bi-play-circle-fill"></i>
                     </span>
                   )}
-                  <span>
+                  <span onClick={() => playNext(nextSong)}>
                     <i className="bi bi-skip-forward-fill"></i>
                   </span>{" "}
                   <span>
