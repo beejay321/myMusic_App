@@ -6,6 +6,8 @@ import Player from "./Player";
 const Album = (props) => {
   const [selectedAlbum, setSelectedAlbum] = useState("");
   const [selectedSong, setSelectedSong] = useState("");
+  const [previousSong, setPreviousSong] = useState("");
+  const [nextSong, setNextSong] = useState("");
   const [playing, setPlaying] = useState(false);
 
   let match = useMatch("/album/:id");
@@ -26,17 +28,33 @@ const Album = (props) => {
       }
     };
     getAlbum();
-  }, []);
+  }, [id]);
 
-  const playSong = (track) => {
+  const playSong = (track, index) => {
+    console.log(track, index);
     setSelectedSong(track);
     console.log("playsong");
     let audio = new Audio(track.preview);
     audio.play();
     setPlaying(true);
+    getPreviousSong(track, index);
+    getNextSong(track, index);
   };
 
-  
+  const getPreviousSong = (track, index) => {
+    console.log(selectedAlbum.tracks.data[index]);
+    if (selectedAlbum.tracks.data[index] === track && index > 0) {
+      console.log(selectedAlbum.tracks.data[index - 1]);
+      setPreviousSong(selectedAlbum.tracks.data[index - 1]);
+    }else (setPreviousSong(track))
+  };
+  const getNextSong = (track, index) => {
+    console.log(selectedAlbum.tracks.data[index]);
+    if (selectedAlbum.tracks.data[index] === track) {
+      console.log(selectedAlbum.tracks.data[index + 1]);
+      setNextSong(selectedAlbum.tracks.data[index + 1]);
+    }
+  };
 
   return (
     <>
@@ -104,7 +122,7 @@ const Album = (props) => {
             </Container>
           </Container>
 
-          <Player selectedAlbum={selectedAlbum} selectedSong={selectedSong} playing={playing} setPlaying={setPlaying} />
+          <Player selectedAlbum={selectedAlbum} selectedSong={selectedSong} playing={playing} setPlaying={setPlaying} nextSong={nextSong} previousSong={previousSong} />
         </>
       )}
     </>
