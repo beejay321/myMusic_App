@@ -1,6 +1,76 @@
-body {
+
+.App {
   overflow-x: hidden;
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(7, 7, 33);
+  width: 100vw;
+  height: 100vh
+}
+.sidebar{
+  background-color: #1a2029;
+  width: 270px;
+  height: 100vh;
+  position: fixed; 
+  /* background-color: #f2f2f2; */
+  z-index: 4;
+  left: 0px; 
+}
+
+.homeBox{
+  background-color: #22272d;
+  width:100%;
+  height: 100%;  
+}
+
+.home{
+  background-color: #22272d;
+  left: 280px;
+  right: 5px;
+  top: 80px;
+  position: absolute;
+  padding-right: 20px;  
+  padding-left: 20px;  
+  min-height: 100%;
+}
+.sidebarSubtitle{
+  color: #7c8696;
+  /* background-color: #1a2029; */
+  border: none;
+}
+.addPlaylist{
+  border: 1px solid #7c8696;
+  border-radius: 50px;
+  color: #7c8696;
+  background-color: #1a2029;
+}
+.forYou{
+  border: none;
+  border-radius: 50px;
+  color: #323f52;
+  background-image: linear-gradient(to right, rgb(78, 180, 228) , rgb(117, 227, 117));
+}
+.nav{
+  padding: 8px;
+  border: 1px solid #7c8696;
+  border-radius: 50px;
+  color: #7c8696;
+  background-color: #1a2029;
+}
+.sidebarDataRow{
+  color: #a4adbb;
+  background-color:#1a2029;
+  border: none;
+}
+.sidebarDataRow:hover{
+  color: #212730;
+  /* background-image: linear-gradient(to right, rgb(78, 180, 228) , rgb(117, 227, 117)); */
+}
+.searchDiv{
+  background-color: #1a2029;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+
 }
 .search {
   width: 58vh;
@@ -15,6 +85,35 @@ body {
   border: 1px solid green;
   border-radius: 50px;
   width: 16vh;
+}
+.categoryRows{
+  min-height:600px;
+
+}
+
+.albumDiv {
+  background-color: rgb(70, 70, 70);
+  border-radius: 50px;
+}
+.albumDiv:hover {
+  background-color: rgb(100, 100, 100);
+  cursor: pointer;
+  width: 99%;
+}
+.albumTitle{
+  height: 120px;
+  /* background-color: rgb(100, 100, 100); */
+  margin-bottom: 8px;
+  font-size: 10px;
+
+
+}
+
+.cover {
+  width: 100%;
+  display: flex;
+  border: none;
+  border-radius: 20px;
 }
 .tableBorders {
   border: none !important;
@@ -42,21 +141,7 @@ body {
   width: 300px;
   font-size: 12px;
 }
-.albumDiv {
-  background-color: rgb(70, 70, 70);
-}
-.albumDiv:hover {
-  background-color: rgb(100, 100, 100);
-  cursor: pointer;
-  width: 99%;
-}
 
-.cover {
-  width: 100%;
-  display: flex;
-  border: none;
-  border-radius: 0px;
-}
 
 .coverTitle {
   width: 100%;
@@ -73,4 +158,10 @@ body {
 
 a {
   text-decoration: none;
+}
+.scroll {
+  /* width: 100%; */
+  overflow: auto;
+  border-radius: 10px;
+  background-color: rgb(214, 228, 245);
 }
