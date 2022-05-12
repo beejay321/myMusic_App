@@ -1,6 +1,7 @@
-import { Container, Row, Col, Image, Form, FormControl, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import Category from "./Category";
+import Search from "./Search";
 
 const Home = () => {
   const [artist, setArtist] = useState([]);
@@ -24,27 +25,20 @@ const Home = () => {
 
   return (
     <>
-      <Container fluid className="home">
-        <Row className="d-flex justify-content-end">
-          <Form className="search d-flex mx-2 py-3  ">
-            <FormControl
-              type="search"
-              placeholder="What are you looking for?"
-              className="searchForm me-2 "
-              aria-label="Search"
-              value={query}
-              onChange={(e) => setQuery(e.currentTarget.value.toLowerCase())}
-            />
-            <Button className="searchBtn" onClick={() => search(query)} variant="outline-success">
-              Search
-            </Button>
-          </Form>
+     
+      <Container fluid className="homeBox">
+        <Row className=" searchDiv d-flex justify-content-end">
+          <Search query={query} setQuery={setQuery} search={search} />
         </Row>
-        <Row className="m-1">
-          {albumsLoaded && <Category title="Search Results" searchResult={artist} />}
-          <Category title="ROCK" genre="Rock" />
-          <Category title="AFRO" genre="Afro" />
-          <Category title="REGGAE" genre="Reggae" />
+        <Row className="home ">
+          <Col>
+            <Row className="m-1 categoryRows">
+              {albumsLoaded && <Category title="Search Results" searchResult={artist} />}
+              <Category title="ROCK" genre="Rock" />
+              <Category title="AFRO" genre="Afro" />
+              <Category title="REGGAE" genre="Reggae" />
+            </Row>
+          </Col>
         </Row>
       </Container>
     </>
