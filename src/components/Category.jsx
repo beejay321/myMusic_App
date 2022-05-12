@@ -1,4 +1,4 @@
-import { Col, Image } from "react-bootstrap";
+import { Col,Row, Image } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
